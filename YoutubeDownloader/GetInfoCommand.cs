@@ -10,7 +10,6 @@ namespace YoutubeDownloader
     public class GetInfoCommand : Command
     {
         // получатель
-        // получатель
         YoutubeClient _client;
         public GetInfoCommand(YoutubeClient client)
         {

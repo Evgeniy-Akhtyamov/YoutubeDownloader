@@ -29,7 +29,7 @@ namespace YoutubeDownloader
             
             // Запуск загрузки
             await _client.Videos.DownloadAsync(url, $"{Directory}.mp4",
-                builder => builder.SetPreset(ConversionPreset.UltraFast) // Конфигурация для макимально бысстрой загрузки
+                builder => builder.SetPreset(ConversionPreset.UltraFast) // Конфигурация для макимально быстрой загрузки
             );
 
             Console.WriteLine("Видео загружено");

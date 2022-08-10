@@ -13,7 +13,8 @@ namespace YoutubeDownloader
         static async Task Main(string[] args)
         {
             // Ссылка на видео в YouTube
-            var videoUrl = "https://www.youtube.com/watch?v=MfG8ZdBT4f8";
+            Console.WriteLine("Вставьте ссылку на видео в YouTube");
+            var videoUrl = Console.ReadLine(); // "https://www.youtube.com/watch?v=MfG8ZdBT4f8";
 
             // создадим отправителя
             var sender = new Sender();
@@ -21,15 +22,15 @@ namespace YoutubeDownloader
             // создадим получателя
             var receiver = new YoutubeClient();
 
-            // создадим команду на загрузку видео
-            var downloadCommand = new DownloadCommand(receiver);
-            sender.SetCommand(downloadCommand);
-            await sender.RunAsync(videoUrl);
-            
             // создадим команду на получение информации о видео
             var getInfoCommand = new GetInfoCommand(receiver);
             sender.SetCommand(getInfoCommand);
             await sender.RunAsync(videoUrl);
+
+            // создадим команду на загрузку видео
+            var downloadCommand = new DownloadCommand(receiver);
+            sender.SetCommand(downloadCommand);
+            await sender.RunAsync(videoUrl);      
         }        
     }
 }
